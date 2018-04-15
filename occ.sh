@@ -44,14 +44,15 @@
            printf "%s\n" "found GeForce GTX 1070 at index $i..."
            printf "%s\n" "setting persistence mode..."
            nvidia-smi -i $i -pm 1
-           printf "%s\n" "setting power limit to 100 watts.."
-           nvidia-smi -i $i -pl 100 
-           printf "%s\n" "setting memory overclock of 1400 Mhz..."
+           printf "%s\n" "setting power limit to 120 watts.."
+           nvidia-smi -i $i -pl 120 
+           printf "%s\n" "setting memory overclock of 600 Mhz..."
 	   #DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 
 	   #nvidia-settings -a [gpu:${i}]/GPUMemoryTransferRateOffset[2]=550
 	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUFanControlState=1
-	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [fan:${i}]/GPUTargetFanSpeed=80
-           DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUMemoryTransferRateOffset[3]=1400
-	   #nvidia-settings -a [gpu:${i}]/GPUGraphicsMemoryOffset[3]=100
+	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [fan:${i}]/GPUTargetFanSpeed=70
+	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUGraphicsClockOffset[3]=130
+           DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUMemoryTransferRateOffset[3]=600
+	   #nvidia-settings -a [gpu:${i}]/GPUGraphicsMemoryOffset[3]=600
        fi 
     done
