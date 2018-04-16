@@ -46,13 +46,13 @@
            nvidia-smi -i $i -pm 1
            printf "%s\n" "setting power limit to 120 watts.."
            nvidia-smi -i $i -pl 120 
-           printf "%s\n" "setting memory overclock of 600 Mhz..."
+           printf "%s\n" "setting memory overclock of 500 Mhz..."
 	   #DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 
 	   #nvidia-settings -a [gpu:${i}]/GPUMemoryTransferRateOffset[2]=550
 	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUFanControlState=1
 	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [fan:${i}]/GPUTargetFanSpeed=70
-	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUGraphicsClockOffset[3]=130
-           DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUMemoryTransferRateOffset[3]=600
+	   DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUGraphicsClockOffset[3]=125
+           DISPLAY=:0 XAUTHORITY=/var/run/lightdm/root/:0 nvidia-settings -a [gpu:${i}]/GPUMemoryTransferRateOffset[3]=500
 	   #nvidia-settings -a [gpu:${i}]/GPUGraphicsMemoryOffset[3]=600
        fi 
     done
