@@ -1,1 +1,1 @@
-./ethminer --farm-recheck 3000 -U -S eth-eu1.nanopool.org:9999 -FS eth-eu2.nanopool.org:9999 -O 0x9335fE2BCdca68407ed5Ae5FB196d2c69CAf96Da.danijelu1/danijelu@gmail.com -RH -SP 1 --cuda-parallel-hash 4
+./miner --server eu1-zcash.flypool.org --port 3333 --user t1d9YnNCGHuYcTXgfdGNpaw26P9cfKwyQY2.wrk --pass x --pec
