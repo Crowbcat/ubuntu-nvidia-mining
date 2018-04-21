@@ -27,7 +27,7 @@
 
 	@reboot screen -S miner -dm bash -c 'echo waiting; sleep 60; cd /home/a/ubuntu-nvidia-mining/; ./occ.sh; echo waiting; sleep 10; ./miner;'
 
-	0 9 * * * /sbin/reboot --reboot --force
+	0 0 * * 1 /sbin/reboot --reboot --force
 
 ### Monitoring the miner
 
