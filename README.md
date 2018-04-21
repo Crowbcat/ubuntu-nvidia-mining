@@ -10,10 +10,9 @@
 7. Run `lspci -v | grep VGA` to make sure the system sees all 12 GPUs... if it doesn't something is wrong with the build.
 8. Update the repository database and install any updates: `sudo apt update && sudo apt upgrade`... then restart: `shutdown -r now`
 9. If you haven't already installed the nvidia drivers (checked the checkbox from step 3), then you will need to install them manually: Add the Nvidia drivers repository: `sudo add-apt-repository ppa:graphics-drivers/ppa` and continue with the next instructions, **otherwise jump to step 11**.
-10. Go in text mode `ctrl + alt + f1` and install the current Nvidia drivers: `sudo apt-get install nvidia-375` (or nvidia 384). If the install fails or anything else goes wrong you can always run `sudo apt-get purge nvidia-*` to return to the previous step
-11. Go into the "Software and Updates" application -> "Additional Drivers" tab and enable the nvidia proprietary driver. Then restart!
-11. Select the Nvidia GPUs `sudo prime-select nvidia` and enable them all for over-clocking `nvidia-xconfig --enable-all-gpus`
-12. Create a folder somewhere in you home directory and clone this repository... `cd YOUR_FOLDER && git clone https://github.com/the-codepunker/ubuntu-nvidia-mining.git .` 
+10. Go in text mode `ctrl + alt + f1` and install the current Nvidia drivers: `sudo apt-get install nvidia-384`. If the install fails or anything else goes wrong you can always run `sudo apt-get purge nvidia-*` to return to the previous step
+11. Select the Nvidia GPUs `sudo prime-select nvidia` and enable them all for over-clocking `sudo nvidia-xconfig --enable-all-gpus`
+12. Create a folder somewhere in you home directory and clone this repository... `git clone https://github.com/crowbcat/ubuntu-nvidia-mining && git clone https://github.com/crowbcat/LINUX_REPO` 
 13. Make a copy of the default Xorg configuration file `sudo mv /etc/X11/xorg.conf /etc/X11/xorg_bak.conf`
 14. Enable full over-clocking capabilities for your GPUs `sudo nvidia-xconfig -a --cool-bits=31 --allow-empty-initial-configuration`
 15. Execute the commands below to populate the xorg.conf file with the required parameters for enabling over-clocking:
@@ -26,7 +25,7 @@
 
 ## Automation through cron - Set the crontab like this as sudo: 
 
-	@reboot screen -S miner -dm bash -c 'echo waiting; sleep 60; cd /home/___USER__/__FOLDER/; ./occ.sh; echo waiting; sleep 10; ./execute.sh;'
+	@reboot screen -S miner -dm bash -c 'echo waiting; sleep 60; cd /home/a/ubuntu-nvidia-mining/; ./occ.sh; echo waiting; sleep 10; ./miner;'
 
 	0 9 * * * /sbin/reboot --reboot --force
 
